@@ -10,6 +10,9 @@ export class Voltcast implements INodeType {
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["zone"]}}',
 		description: 'European electricity prices, forecasts, carbon intensity and optimization',
 		defaults: { name: 'Voltcast' },
+		// Lets AI Agent nodes call Voltcast as a tool (verification step 5;
+		// self-hosted instances need N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE).
+		usableAsTool: true,
 		inputs: ['main'],
 		outputs: ['main'],
 		credentials: [{ name: 'voltcastApi', required: true }],

@@ -1,6 +1,6 @@
 {
   "name": "@voltcast/n8n-nodes-voltcast",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "n8n community node for Voltcast \u2014 European electricity prices, forecasts, carbon intensity and optimization",
   "keywords": [
     "n8n-community-node-package",
