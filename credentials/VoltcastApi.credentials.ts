@@ -2,6 +2,7 @@ import type {
 	IAuthenticateGeneric,
 	ICredentialTestRequest,
 	ICredentialType,
+	Icon,
 	INodeProperties,
 } from 'n8n-workflow';
 
@@ -9,6 +10,11 @@ export class VoltcastApi implements ICredentialType {
 	name = 'voltcastApi';
 
 	displayName = 'Voltcast API';
+
+	icon: Icon = {
+		light: 'file:../nodes/Voltcast/voltcast.svg',
+		dark: 'file:../nodes/Voltcast/voltcast.dark.svg',
+	};
 
 	documentationUrl = 'https://voltcast.com/docs#authentication';
 

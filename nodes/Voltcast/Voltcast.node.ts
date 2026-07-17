@@ -1,10 +1,11 @@
 import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+import { NodeConnectionTypes } from 'n8n-workflow';
 
 export class Voltcast implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Voltcast',
 		name: 'voltcast',
-		icon: 'file:voltcast.svg',
+		icon: { light: 'file:voltcast.svg', dark: 'file:voltcast.dark.svg' },
 		group: ['input'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["zone"]}}',
@@ -13,8 +14,8 @@ export class Voltcast implements INodeType {
 		// Lets AI Agent nodes call Voltcast as a tool (verification step 5;
 		// self-hosted instances need N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE).
 		usableAsTool: true,
-		inputs: ['main'],
-		outputs: ['main'],
+		inputs: [NodeConnectionTypes.Main],
+		outputs: [NodeConnectionTypes.Main],
 		credentials: [{ name: 'voltcastApi', required: true }],
 		requestDefaults: {
 			baseURL: 'https://voltcast.com/api/v1',
@@ -29,30 +30,6 @@ export class Voltcast implements INodeType {
 				default: 'getPrices',
 				options: [
 					{
-						name: 'Get Prices',
-						value: 'getPrices',
-						action: 'Get day-ahead prices',
-						routing: { request: { method: 'GET', url: '=/prices/{{$parameter.zone}}' } },
-					},
-					{
-						name: 'Get Forecast',
-						value: 'getForecast',
-						action: 'Get price forecast',
-						routing: { request: { method: 'GET', url: '=/forecasts/{{$parameter.zone}}' } },
-					},
-					{
-						name: 'Get Carbon Intensity',
-						value: 'getCarbon',
-						action: 'Get carbon intensity and green score',
-						routing: { request: { method: 'GET', url: '=/carbon/{{$parameter.zone}}' } },
-					},
-					{
-						name: 'Get Imbalance Prices',
-						value: 'getImbalance',
-						action: 'Get imbalance prices',
-						routing: { request: { method: 'GET', url: '=/imbalance/{{$parameter.zone}}' } },
-					},
-					{
 						name: 'Find Cheapest Window',
 						value: 'cheapestWindow',
 						action: 'Find the cheapest time window',
@@ -66,6 +43,30 @@ export class Voltcast implements INodeType {
 								},
 							},
 						},
+					},
+					{
+						name: 'Get Carbon Intensity',
+						value: 'getCarbon',
+						action: 'Get carbon intensity and green score',
+						routing: { request: { method: 'GET', url: '=/carbon/{{$parameter.zone}}' } },
+					},
+					{
+						name: 'Get Forecast',
+						value: 'getForecast',
+						action: 'Get price forecast',
+						routing: { request: { method: 'GET', url: '=/forecasts/{{$parameter.zone}}' } },
+					},
+					{
+						name: 'Get Imbalance Prices',
+						value: 'getImbalance',
+						action: 'Get imbalance prices',
+						routing: { request: { method: 'GET', url: '=/imbalance/{{$parameter.zone}}' } },
+					},
+					{
+						name: 'Get Prices',
+						value: 'getPrices',
+						action: 'Get day ahead prices',
+						routing: { request: { method: 'GET', url: '=/prices/{{$parameter.zone}}' } },
 					},
 				],
 			},
