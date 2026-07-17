@@ -1,7 +1,7 @@
 {
   "name": "@voltcast/n8n-nodes-voltcast",
   "version": "0.1.5",
-  "description": "n8n community node for Voltcast \u2014 European electricity prices, forecasts, carbon intensity and optimization",
+  "description": "n8n community node for Voltcast — European electricity prices, forecasts, carbon intensity and optimization",
   "keywords": [
     "n8n-community-node-package",
     "energy",
@@ -42,9 +42,9 @@
   },
   "devDependencies": {
     "@n8n/eslint-plugin-community-nodes": "^0.24.0",
-    "eslint": "^9.39.5",
+    "eslint": "^9.29.0",
     "eslint-plugin-n8n-nodes-base": "^1.16.7",
-    "n8n-workflow": "^1.70.0",
+    "n8n-workflow": "^2.16.0",
     "typescript": "^5.5.0",
     "typescript-eslint": "^8.64.0"
   },
